@@ -1,0 +1,16 @@
+.line {
+    width: 2px;
+    height: 100px;
+    background-color: white;
+    position: relative;
+    animation: moveRight 2s linear infinite;
+}
+
+@keyframes moveRight {
+    0% {
+        left: 0;
+      }
+      100% {
+        left: 100%;
+      }
+}
