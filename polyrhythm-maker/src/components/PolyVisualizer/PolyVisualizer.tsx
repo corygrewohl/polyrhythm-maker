@@ -1,15 +1,26 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import styles from "./PolyVisualizer.module.css";
 
 export function PolyVisualizer() {
+
+  const [isPlaying, setIsPlaying] = useState<boolean>(false);
+  
+  const handleClick = () => {
+    setIsPlaying(!isPlaying)
+  }
+
+
   return (
-    <div className="w-screen flex flex-row justify-center pt-6">
+    <div className="w-screen flex flex-col justify-center items-center gap-4 pt-6">
       <div className="w-1/2 h-[200px] bg-[#77AF9C]">
         <div className="h-[100px] px-2 text-4xl border-b border-white">
           1 3 4
         </div>
-        <div className={styles.line}></div>
+        {isPlaying ? <div className={styles.line}></div> : null}
       </div>
-      <button className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-6 rounded inline-flex items-center">
+      <button className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-6 rounded inline-flex items-center max-w-60" onClick={handleClick}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
